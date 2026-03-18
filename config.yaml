@@ -1,0 +1,17 @@
+ai:
+  model: "gemini/gemini-2.0-flash"
+  api_key: ${GEMINI_API_KEY}
+  temperature: 0.2
+
+stocks:
+  - code: "sh.600519"
+    name: "贵州茅台"
+
+push:
+  enable: true
+  type: "telegram"
+  tg_token: ${TELEGRAM_BOT_TOKEN}
+  chat_id: ${TELEGRAM_CHAT_ID}
+
+storage:
+  save_report: true
