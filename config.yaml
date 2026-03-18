@@ -12,7 +12,7 @@ search:
   news_days: 3        # 只看最近3天的消息，保证时效性
 
 stocks:
-  - code: "sh.600519"
+  - code: "600519"
     name: "贵州茅台"
 
 push:
