@@ -7,7 +7,7 @@ ai:
 search:
   enable: true
   type: "tavily"
-  api_key: ${TAVILY_API_KEY}
+  api_key: ${TAVILY_API_KEYS}
   max_results: 5      # 每次搜索抓取前5条最相关新闻
   news_days: 3        # 只看最近3天的消息，保证时效性
 
