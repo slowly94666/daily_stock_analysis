@@ -3,20 +3,23 @@ ai:
   api_key: ${GEMINI_API_KEY}
   temperature: 0.2
 
-# 新增搜索配置
+# 搜索引擎配置
 search:
   enable: true
   type: "tavily"
-  api_key: ${TAVILY_API_KEYS}
+  api_key: ${TAVILY_API_KEY}
   max_results: 5      # 每次搜索抓取前5条最相关新闻
   news_days: 3        # 只看最近3天的消息，保证时效性
 
+# 监控股票列表
 stocks:
-  - code: "600519"
-    name: "贵州茅台"
+  - code: "sh.603218"
+    name: "日月股份"
 
+# 推送渠道
 push:
   enable: true
   type: "telegram"
   tg_token: ${TELEGRAM_BOT_TOKEN}
   chat_id: ${TELEGRAM_CHAT_ID}
+  style: "simple"     # 建议先用简单模式，确保推送 100% 成功
