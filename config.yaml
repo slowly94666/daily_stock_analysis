@@ -1,9 +1,10 @@
+# 1. AI 逻辑引擎
 ai:
   model: "gemini/gemini-2.0-flash"
   api_key: ${GEMINI_API_KEY}
   temperature: 0.2
 
-# 搜索引擎配置
+# 2. 搜索引擎（你的“眼睛”，绝对保留）
 search:
   enable: true
   type: "tavily"
@@ -11,15 +12,25 @@ search:
   max_results: 5      # 每次搜索抓取前5条最相关新闻
   news_days: 3        # 只看最近3天的消息，保证时效性
 
-# 监控股票列表
+# 3. 监控股票列表（黄金 6 人组）
 stocks:
-  - code: "sh.603218"
+  - code: "603218"
     name: "日月股份"
+  - code: "600519"
+    name: "贵州茅台"
+  - code: "300750"
+    name: "宁德时代"
+  - code: "601138"
+    name: "工业富联"
+  - code: "688981"
+    name: "中芯国际"
+  - code: "300308"
+    name: "中际旭创"
 
-# 推送渠道
+# 4. 推送渠道
 push:
   enable: true
   type: "telegram"
   tg_token: ${TELEGRAM_BOT_TOKEN}
   chat_id: ${TELEGRAM_CHAT_ID}
-  style: "simple"     # 建议先用简单模式，确保推送 100% 成功
+  style: "simple"     # 6只股票建议用 simple 模式，防止消息太长被 TG 拦截
