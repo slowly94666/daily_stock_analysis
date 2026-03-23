@@ -271,3 +271,26 @@ jobs:
             echo "📜 最近日志（最后 30 行）:"
             tail -30 logs/stock_analysis_*.log 2>/dev/null || echo "无日志"
           fi
+
+      - name: 保存数据库到仓库
+        if: always()
+        run: |
+          if [ -f "data/stock_analysis.db" ]; then
+            # 配置 git
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            
+            # 添加数据库文件
+            git add data/stock_analysis.db
+            
+            # 只在有变化时提交
+            if git diff --cached --quiet; then
+              echo "📦 数据库无变化，跳过提交"
+            else
+              git commit -m "📊 更新分析数据库 [skip ci]"
+              git push
+              echo "✅ 数据库已保存到仓库"
+            fi
+          else
+            echo "⚠️ 未找到数据库文件"
+          fi

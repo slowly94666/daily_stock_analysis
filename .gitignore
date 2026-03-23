@@ -50,9 +50,11 @@ env/
 /data/
 logs/
 reports/
-*.db
 *.sqlite
 *.sqlite3
+
+# 允许分析数据库提交到仓库（用于历史记录持久化）
+!data/stock_analysis.db
 
 # 系统文件
 .DS_Store
